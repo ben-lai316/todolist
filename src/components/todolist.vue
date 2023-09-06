@@ -29,12 +29,33 @@
 
 <style>
 
-.app {
-    width: 400px;
-    height: 400px;
-    background-color: #225A74;
-    position: relative;
+* {
+  position: relative;
 }
+
+html,body{
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  background-color: #F4EC8D;
+}
+
+#app {
+    padding: 0px;
+}
+
+.app {
+    width: 420px;
+    height: 500px;
+    background-color: #225A74;
+    border: solid 4px white;
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
 
 .main {
   width: 100%;
@@ -95,7 +116,7 @@ li input{
 
 .edit{
     position: absolute;
-    right: 60px;
+    right: 80px;
     background-color: transparent;
     color: skyblue;
     font-weight: 500;
@@ -110,7 +131,7 @@ li input{
 
 .delete{
     position: absolute;
-    right: 10px;
+    right: 20px;
     background-color: transparent;
     color:red;
     font-weight: 500;

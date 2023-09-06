@@ -16,8 +16,8 @@
                     <span :class="{'done': todo.done}" v-show="todo.done === true"> {{todo.content }} </span>
                     <span class="item" v-if="!todo.editing" v-show="todo.done !== true">{{ todo.content }}</span>
                     <input v-else v-model="todo.content" @keyup.enter="saveEdit(index)">
-                    <button class="edit" @click="toggleEdit(index)">{{ todo.editing ? '保存' : '編輯' }}</button>
-                    <button class="delete" @click="removeTodo(index)"> 刪除 </button>
+                    <button class="edit" @click="toggleEdit(index)">{{ todo.editing ? 'Save' : 'Edit' }}</button>
+                    <button class="delete" @click="removeTodo(index)"> Delete </button>
                 </li>
             </ul>
 
@@ -89,18 +89,21 @@ li input{
 .item{
     position: relative;
     margin-left: -5px;
+    color:white;
 }
 
 
 .edit{
     position: absolute;
-    right: 50px;
+    right: 60px;
     background-color: transparent;
+    color: skyblue;
+    font-weight: 500;
     border:none
 }
 
 .edit:hover{
-    background-color: blue;
+    background-color: #4D8AA6;
     border:solid 1px white;
     color:white
 }
@@ -109,11 +112,13 @@ li input{
     position: absolute;
     right: 10px;
     background-color: transparent;
+    color:red;
+    font-weight: 500;
     border:none
 }
 
 .delete:hover{
-    background-color: #FF3D4A;
+    background-color: #4D8AA6;
     border:solid 1px white;
     color:white
 }
@@ -170,8 +175,8 @@ import { computed, ref, watch, onMounted } from "vue"
         localStorage.setItem('todos', JSON.stringify(newVal))
     },{deep: true})
 
-    // onMounted(() => {
-    //     todos.value = JSON.parse(localStorage.getItem('todos'))|| []
-    // })
+    onMounted(() => {
+         todos.value = JSON.parse(localStorage.getItem('todos'))|| []
+    })
 
 </script>
